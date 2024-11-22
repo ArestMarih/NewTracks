@@ -27,6 +27,7 @@
                   <div id="infob">
                     <button class="infobtn">Done!</button>
                     <button class="infobtn">Delete</button>
+
                     <button class="infobtn" type="button" onclick="openEdit()">
                       Edit
                     </button>
@@ -78,6 +79,7 @@
     </div>
     <div class="form-popup" id="penis">
       {% for quest in quests %}
+
       <form method="POST" class="form-container" action="edit/{{ quest.id }}/">
         <label for="nameQu"><b>Задача</b></label>
         <input

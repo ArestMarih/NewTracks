@@ -1,4 +1,4 @@
-from django.shortcuts import render, HttpResponseRedirect
+from django.shortcuts import render, HttpResponseRedirect, HttpResponse
 from trak.models import quest
 
 def main(request):
@@ -26,4 +26,8 @@ def edit(request, id):
          p.exp = request.POST.get('exp')
          p.save()
          return HttpResponseRedirect('/')
-          
+
+
+def getQ(request, pk):
+     q = quest.objects.filter(id=pk).values()
+     return HttpResponseRedirect('/', {'q':q})
