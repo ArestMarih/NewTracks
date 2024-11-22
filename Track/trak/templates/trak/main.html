@@ -1,74 +1,64 @@
 {% load static%}
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8" />
-    <title>project</title>
-    <link rel="stylesheet" type="text/css" href="{% static 'css/class.css'%}" />
-    <link rel="stylesheet" type="text/css" href="{% static 'css/id.css'%}" />
-    <script src="{% static 'js/main.js'%}"></script>
-  </head>
-  <body>
-    <div id="a">
-      <div class="b">
-        <div id="nav">NAVIGATION</div>
-        <div id="inf">
-          {% for quest in quests %}
-          <div id="info">
-            <div id="infostate">
-              <div class="infotext" id="infomain">
-                {{ quest.nameQu }} <br />
-                {{ quest.comments }}
-              </div>
-              <div id="inforb">
-                <div class="infotext">Reward: {{ quest.exp }} XP</div>
-                <div class="infotext">
-                  <div id="infob">
-                    <button class="infobtn">Done!</button>
-                    <button class="infobtn">Delete</button>
-                    <a href="deleters/{{ quest.id }}"
-                      ><button>Link Text</button></a
-                    >
-                    <a href="http://stackoverflow.com"
-                      ><button>Link Text</button></a
-                    >
-                  </div>
+    <head>
+        <meta charset="utf-8">
+        <title>project</title>
+        <link rel="stylesheet" type="text/css" href="{% static 'css/class.css'%}">
+        <link rel="stylesheet" type="text/css" href="{% static 'css/id.css'%}">
+    </head>
+    <body>
+        <div id="a">
+            <div class="b">
+                <div id="nav">NAVIGATION</div>
+                <div id="inf">
+                    {% for quest in quests %}
+                    <div id='info'>
+                        <div id='infostate'>
+                            <div class='infotext' id='infomain'>{{ quest.nameQu }} {{ quest.comments }} </div>
+                                <div id='inforb'>
+                                    <div class='infotext'>Reward: {{ quest.exp }} XP </div>
+                                        <div class='infotext'>
+                                            <div id='infob'>
+                                                <button class='infobtn'>Done!</button>
+                                                <button class='infobtn'>Delete</button>
+                                                <a href="deleters/{{ quest.id }}"><button>Link Text</button></a>
+                                                <a href="http://stackoverflow.com"><button>Link Text</button></a>
+                                            </div>
+                                        </div>
+                                </div>
+                            {% comment %} <p class='qus'>{{ quest.nameQu }} </p>
+                            <p class='qus'>{{ quest.comments }} </p>
+                            <p class='qus'>{{ quest.exp }} </p> {% endcomment %}
+                        </div>
+                    </div>
+                    {% endfor %}
                 </div>
-              </div>
-              {% comment %}
-              <p class="qus">{{ quest.nameQu }}</p>
-              <p class="qus">{{ quest.comments }}</p>
-              <p class="qus">{{ quest.exp }}</p>
-              {% endcomment %}
             </div>
-          </div>
-          {% endfor %}
+            <div class="b">
+                <div id="per">
+                    <div id="perpic">PERSON</div>
+                    <div id="perbar">XP bar</div>
+                </div>
+                <div id="vid">
+                    <button type='button' onclick="openForm()">button</button>
+                    <p>button</p>
+                    <p>button</p>
+                    <p>button</p>
+                    <p>button</p>
+                    <p>button</p>
+                    <p>button</p>
+                </div>
+            </div>
         </div>
-      </div>
-      <div class="b">
-        <div id="per">
-          <div id="perpic">PERSON</div>
-          <div id="perbar">XP bar</div>
-        </div>
-        <div id="vid">
-          <button type="button" onclick="openForm()">button</button>
-          <p>button</p>
-          <p>button</p>
-          <p>button</p>
-          <p>button</p>
-          <p>button</p>
-          <p>button</p>
-        </div>
-      </div>
-    </div>
-    <div class="form-popup" id="myForm">
-      <form method="POST" class="form-container">
-        {% csrf_token %}
-        <label for="nameQu"><b>Задача</b></label>
-        <input type="text" placeholder="Текущая задача" name="nameQu" />
-
-        <label for="comments"><b>Коментарий</b></label>
-        <input type="text" placeholder="Коментарий" name="comments" />
+        <div class="form-popup" id="myForm">
+            <form method="POST" class="form-container"> 
+            {% csrf_token %}         
+              <label for="nameQu"><b>Задача</b></label>
+              <input type="text" placeholder="Текущая задача" name="nameQu">
+          
+              <label for="comments"><b>Коментарий</b></label>
+              <input type="text" placeholder="Коментарий" name="comments">
 
         <label for="exp"><b>Опыт</b></label>
         <input type="text" placeholder="Опыт" name="exp" />
