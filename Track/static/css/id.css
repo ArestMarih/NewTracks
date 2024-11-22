@@ -45,6 +45,8 @@
 #info{
     display: flex;
     justify-content: center;
+    margin-bottom: 10px;
+    
 }
 #inforb{
     flex-direction: column;
@@ -61,4 +63,7 @@
 #infob{
     display: flex;
     flex-wrap: nowrap;
+}
+#penis{
+   display: none;
 }

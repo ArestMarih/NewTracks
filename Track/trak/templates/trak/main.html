@@ -17,7 +17,9 @@
           <div id="info">
             <div id="infostate">
               <div class="infotext" id="infomain">
-                {{ quest.nameQu }} {{ quest.comments }}
+                <span>{{ quest.nameQu }}</span><span>{{ quest.comments }}</span>
+                {% if quest.done %}<span>Выполнено</span>{% else %}Не
+                выполнено{% endif %}
               </div>
               <div id="inforb">
                 <div class="infotext">Reward: {{ quest.exp }} XP</div>
@@ -25,12 +27,9 @@
                   <div id="infob">
                     <button class="infobtn">Done!</button>
                     <button class="infobtn">Delete</button>
-                    <a href="deleters/{{ quest.id }}"
-                      ><button>Link Text</button></a
-                    >
-                    <a href="http://stackoverflow.com"
-                      ><button>Link Text</button></a
-                    >
+                    <button class="infobtn" type="button" onclick="openEdit()">
+                      Edit
+                    </button>
                   </div>
                 </div>
               </div>
@@ -62,7 +61,6 @@
     </div>
     <div class="form-popup" id="myForm">
       <form method="POST" class="form-container" action="Poster/">
-        {% csrf_token %}
         <label for="nameQu"><b>Задача</b></label>
         <input type="text" placeholder="Текущая задача" name="nameQu" />
 
@@ -76,6 +74,40 @@
         <button type="button" class="btn cancel" onclick="closeForm()">
           Закрыть
         </button>
+      </form>
+    </div>
+    <div class="form-popup" id="penis">
+      {% for quest in quests %}
+      <form method="POST" class="form-container" action="edit/{{ quest.id }}/">
+        <label for="nameQu"><b>Задача</b></label>
+        <input
+          type="text"
+          placeholder="Текущая задача"
+          value="{{ quest.nameQu }}"
+          name="nameQu"
+        />
+
+        <label for="comments"><b>Коментарий</b></label>
+        <input
+          type="text"
+          placeholder="Коментарий"
+          value="{{ quest.comments }}"
+          name="comments"
+        />
+
+        <label for="exp"><b>Опыт</b></label>
+        <input
+          type="text"
+          value="{{ quest.exp }}"
+          placeholder="Опыт"
+          name="exp"
+        />
+        <button type="submit" class="btn" value="POST">Отправка формы</button>
+
+        <button type="button" class="btn cancel" onclick="closeEdit()">
+          Закрыть
+        </button>
+        {% endfor %}
       </form>
     </div>
   </body>
