@@ -17,3 +17,10 @@ def Poster(request):
         exp = request.POST.get('exp')
         quest.objects.create(nameQu=nameQu, comments=comments, exp=exp)
     return HttpResponseRedirect('/')
+
+def done(request,id):
+    dones = quest.objects.get(id=id)
+    dones.done = True
+    dones.save()
+    return HttpResponseRedirect('/')
+     
