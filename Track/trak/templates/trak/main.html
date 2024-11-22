@@ -20,10 +20,13 @@
                                     <div class='infotext'>Reward: {{ quest.exp }} XP </div>
                                         <div class='infotext'>
                                             <div id='infob'>
-                                                <button class='infobtn'>Done!</button>
-                                                <button class='infobtn'>Delete</button>
-                                                <a href="deleters/{{ quest.id }}"><button>Link Text</button></a>
-                                                <a href="http://stackoverflow.com"><button>Link Text</button></a>
+                                                {% if quest.done %}
+                                                    <p>Задача выполнена</p>
+                                                {% else %}
+                                                    <p>Задача не выполнена</p>
+                                                {% endif %}
+                                                <a href="done/{{ quest.id }}"><button class='infobtn'>Done!</button></a>
+                                                <a href="deleters/{{ quest.id }}"><button class='infobtn'>Delete</button></a>
                                             </div>
                                         </div>
                                 </div>
