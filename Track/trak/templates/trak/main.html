@@ -78,9 +78,10 @@
       </form>
     </div>
     <div class="form-popup" id="penis">
-      {% for quest in quests %}
+      {% comment %} {% for quest in quests %} {% endcomment %}
 
       <form method="POST" class="form-container" action="edit/{{ quest.id }}/">
+        {% for quest in quests %}
         <label for="nameQu"><b>Задача</b></label>
         <input
           type="text"
@@ -104,12 +105,12 @@
           placeholder="Опыт"
           name="exp"
         />
+        {% endfor %}
         <button type="submit" class="btn" value="POST">Отправка формы</button>
 
         <button type="button" class="btn cancel" onclick="closeEdit()">
           Закрыть
         </button>
-        {% endfor %}
       </form>
     </div>
   </body>
