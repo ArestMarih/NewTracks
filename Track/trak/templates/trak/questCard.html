@@ -6,17 +6,17 @@
       {% if quest.done %}<span>Выполнено</span>{% else %}Не выполнено{% endif %}
     </div>
     <div id="inforb">
-      <div class="infotext">Reward: {{ quest.exp }} XP</div>
+      <div class="infotext">Награда: {{ quest.exp }} XP</div>
       <div class="infotext">
         <div id="infob">
-          <button class="infobtn">Done!</button>
-          <button class="infobtn">Delete</button>
+          <button class="infobtn">Выполнено</button>
+          <button class="infobtn">Удалить</button>
           <button
             class="infobtn"
             type="button"
-            onclick="openEdit({{quest.id}})"
+            onclick="openEdit({{ quest.id }})"
           >
-            Edit
+            Изменить
           </button>
         </div>
       </div>
