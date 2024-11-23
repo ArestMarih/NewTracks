@@ -12,33 +12,9 @@
     <div id="a">
         <div class="b">
             <div id="nav">NAVIGATION</div>
-            <div id="inf">{% include "./questCard.html" %}
-                {% for quest in quests %}
-                <div id='info'>
-                    <div id='infostate'>
-                        <div class='infotext' id='infomain'>{{ quest.nameQu }} {{ quest.comments }} </div>
-                            <div id='inforb'>
-                                <div class='infotext'>Reward: {{ quest.exp }} XP </div>
-                                <div class="infotext">
-                                  <div id="infob">
-                                    <a href="done/{{ quest.id }}"><button class='infobtn'>Done!</button></a>
-                                    <a href="deleters/{{ quest.id }}"><button class='infobtn'>Delete</button></a>
-                                    <button
-                                      class="infobtn"
-                                      type="button"
-                                      onclick="openEdit({{ quest.id }})"
-                                    >
-                                      Изменить
-                                    </button>
-                                  </div>
-                                    </div>
-                            </div>
-                    </div>
-                </div>
-            </div>
-          {% endfor %}
+            <div id="inf">{% include "./questCard.html" %}</div>
         </div>
-    </div>
+              
       <div class="b">
         <div id="per">
           <div id="perpic">PERSON</div>
