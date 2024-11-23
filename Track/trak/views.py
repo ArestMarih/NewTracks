@@ -1,4 +1,7 @@
+import json
 from django.shortcuts import render, HttpResponseRedirect, HttpResponse
+from django.forms.models import model_to_dict
+from django.http import JsonResponse
 from trak.models import quest
 
 def main(request):
@@ -30,4 +33,4 @@ def edit(request, id):
 
 def getQ(request, pk):
      q = quest.objects.filter(id=pk).values()
-     return HttpResponseRedirect('/', {'q':q})
+     return JsonResponse({'q':list(q)})
