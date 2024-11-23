@@ -1,4 +1,7 @@
-from django.shortcuts import render, HttpResponseRedirect
+import json
+from django.shortcuts import render, HttpResponseRedirect, HttpResponse
+from django.forms.models import model_to_dict
+from django.http import JsonResponse
 from trak.models import quest
 
 def main(request):
@@ -24,3 +27,15 @@ def done(request,id):
     dones.save()
     return HttpResponseRedirect('/')
      
+def edit(request, id):
+     p = quest.objects.get(id=id)
+     if request.method == "POST":
+         p.nameQu = request.POST.get('nameQu')
+         p.comments = request.POST.get('comments')
+         p.exp = request.POST.get('exp')
+         p.save()
+         return HttpResponseRedirect('/')
+
+def getQ(request, pk):
+     q = quest.objects.filter(id=pk).values()
+     return JsonResponse({'q':list(q)})

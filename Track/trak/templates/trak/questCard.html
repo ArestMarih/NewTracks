@@ -1,0 +1,26 @@
+{% for quest in quests %}
+<div id="info">
+  <div id="infostate">
+    <div class="infotext" id="infomain">
+      <span>{{ quest.nameQu }}</span><span>{{ quest.comments }}</span>
+      {% if quest.done %}<span>Выполнено</span>{% else %}Не выполнено{% endif %}
+    </div>
+    <div id="inforb">
+      <div class="infotext">Reward: {{ quest.exp }} XP</div>
+      <div class="infotext">
+        <div id="infob">
+          <button class="infobtn">Done!</button>
+          <button class="infobtn">Delete</button>
+          <button
+            class="infobtn"
+            type="button"
+            onclick="openEdit({{quest.id}})"
+          >
+            Edit
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endfor %}
