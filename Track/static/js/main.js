@@ -2,13 +2,12 @@ function closeForm() {
   document.getElementById("myForm").style.display = "none";
 }
 function openForm() {
-  document.getElementById("myForm").style.display = "block";
+  document.getElementById("myForm").style.display = "flex";
 }
 
 async function openEdit(id) {
   const r = await fetch(`http://127.0.0.1:8000/getQ/${id}/`);
   const json = await r.json();
-  console.log(json);
   document.getElementById("form-edit").action = `edit/${json.q[0]["id"]}/`;
 
   document.getElementById("nameQu").value = `${json.q[0]["nameQu"]}`;
