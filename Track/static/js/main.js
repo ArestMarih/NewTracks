@@ -1,8 +1,10 @@
 function closeForm() {
   document.getElementById("myForm").style.display = "none";
+  document.getElementById("a").style.filter = "blur(0)";
 }
 function openForm() {
   document.getElementById("myForm").style.display = "flex";
+  document.getElementById("a").style.filter = "blur(10px)";
 }
 
 async function openEdit(id) {
@@ -13,9 +15,10 @@ async function openEdit(id) {
   document.getElementById("nameQu").value = `${json.q[0]["nameQu"]}`;
   document.getElementById("comments").value = `${json.q[0]["comments"]}`;
   document.getElementById("exp").value = `${json.q[0]["exp"]}`;
-
+  document.getElementById("a").style.filter = "blur(10px)";
   document.getElementById("penis").style.display = "block";
 }
 function closeEdit() {
+  document.getElementById("a").style.filter = "blur(0)";
   document.getElementById("penis").style.display = "none";
 }
