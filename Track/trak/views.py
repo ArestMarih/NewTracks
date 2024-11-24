@@ -1,33 +1,34 @@
-import json
+
 from django.shortcuts import render, HttpResponseRedirect, HttpResponse
 from django.forms.models import model_to_dict
 from django.http import JsonResponse
 from trak.models import quest, Persons
 
-def main(request):
+def main(request): # подгрузка всех данных на странцу 
     quests = quest.objects.all()
-    return render(request,'trak/main.html',{'quests':quests})
+    user = Persons.objects.all()
+    return render(request,'trak/main.html',{'data':{'quests':quests,'person':user}})
     
-def deleters(request,id):
+def deleters(request,id): # удаление квеста
         Quest = quest.objects.get(id=id)
         Quest.delete()
         return HttpResponseRedirect('/')
 
-def Poster(request):
+def Poster(request): # создание квеста
     if request.method == "POST":
         nameQu = request.POST.get('nameQu')
         comments = request.POST.get('comments')
         exp = request.POST.get('exp')
         quest.objects.create(nameQu=nameQu, comments=comments, exp=exp)
     return HttpResponseRedirect('/')
-
-def done(request,id):
+ 
+def done(request,id):  #отмета о выполнении 
     dones = quest.objects.get(id=id)
     dones.done = True
     dones.save()
     return HttpResponseRedirect('/')
      
-def edit(request, id):
+def edit(request, id):  # удаление квеста 
      p = quest.objects.get(id=id)
      if request.method == "POST":
          p.nameQu = request.POST.get('nameQu')
@@ -36,10 +37,8 @@ def edit(request, id):
          p.save()
          return HttpResponseRedirect('/')
 
-def getQ(request, pk):
+def getQ(request, pk): # получение определенной квест 
      q = quest.objects.filter(id=pk).values()
      return JsonResponse({'q':list(q)})
 
-def persona(request):
-    persona = Persons.objects.all()
-    return render(request,'trak/main.html',{'persona':persona})
+

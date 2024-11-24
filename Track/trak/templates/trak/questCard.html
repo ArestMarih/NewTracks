@@ -1,4 +1,4 @@
-{% for quest in quests %}
+{% for quest in data.quests %}
 <div id="info">
   <div id="infostate">
     <div class="infotext" id="infomain">
@@ -9,8 +9,12 @@
       <div class="infotext">Reward: {{ quest.exp }} XP</div>
       <div class="infotext">
         <div id="infob">
-          <a href="done/{{ quest.id }}"><button class='infobtn'>Done!</button></a>
-          <a href="deleters/{{ quest.id }}"><button class='infobtn'>Delete</button></a>
+          <a href="done/{{ quest.id }}"
+            ><button class="infobtn">Done!</button></a
+          >
+          <a href="deleters/{{ quest.id }}"
+            ><button class="infobtn">Delete</button></a
+          >
           <button
             class="infobtn"
             type="button"
