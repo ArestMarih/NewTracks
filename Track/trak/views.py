@@ -41,4 +41,6 @@ def getQ(request, pk): # получение определенной квест
      q = quest.objects.filter(id=pk).values()
      return JsonResponse({'q':list(q)})
 
-
+def test(request):
+    data = Persons.objects.all()
+    return render(request, 'trak/test.html', {'data':data})
