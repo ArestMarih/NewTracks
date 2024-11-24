@@ -2,7 +2,7 @@ import json
 from django.shortcuts import render, HttpResponseRedirect, HttpResponse
 from django.forms.models import model_to_dict
 from django.http import JsonResponse
-from trak.models import quest
+from trak.models import quest, Persons
 
 def main(request):
     quests = quest.objects.all()
@@ -39,3 +39,7 @@ def edit(request, id):
 def getQ(request, pk):
      q = quest.objects.filter(id=pk).values()
      return JsonResponse({'q':list(q)})
+
+def persona(request):
+    persona = Persons.objects.all()
+    return render(request,'trak/main.html',{'persona':persona})

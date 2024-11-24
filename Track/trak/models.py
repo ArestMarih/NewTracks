@@ -5,3 +5,20 @@ class quest(models.Model):
     comments = models.TextField(null=True,blank=True)
     exp = models.PositiveIntegerField(default=0)
     done = models.BooleanField(default=False)
+
+class NowExp(models.Model):
+    expe = models.PositiveIntegerField(default=0)
+
+class Person(models.Model):
+    nameL = models.TextField()
+    maxlvl = models.PositiveIntegerField()
+    # image = models.ImageField(upload_to='image')
+    nowExp = models.ForeignKey(NowExp, on_delete=models.PROTECT)
+
+class Persons(models.Model):
+    nameL = models.TextField()
+    maxlvl = models.PositiveIntegerField()
+    image = models.ImageField(upload_to='image')
+
+
+    
