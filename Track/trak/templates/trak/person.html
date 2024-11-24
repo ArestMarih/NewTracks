@@ -1,6 +1,6 @@
-
-<div>
-    {% pe%}
-    <div id="perpic">PERSON</div>
-    <div id="">PERSON</div>
+<div id="per">
+  {% for p in persona %}
+  <div id="perpic">{{p.nameL}}</div>
+  <div id="">PERSON</div>
+  {% endfor %}
 </div>
