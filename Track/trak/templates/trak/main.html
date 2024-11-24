@@ -17,7 +17,9 @@
               
       <div class="b">
         <div id="per">
-          <div id="perpic">PERSON</div>
+          {% for person in persona %}
+          <div id="perpic"> {{ person.nameL }}</div>
+          {% endfor %}
           <div id="perbar">XP bar</div>
         </div>
         <div id="vid">

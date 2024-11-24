@@ -1,6 +1,7 @@
 
 <div>
-    {% pe%}
-    <div id="perpic">PERSON</div>
-    <div id="">PERSON</div>
+    {% for person in persona%}
+    <div id="perpic">{{ person.nameL }}</div>
+    <div id="">{{ person.image.url}}</div>
+    {% endfor %}
 </div>

@@ -6,7 +6,8 @@ from trak.models import quest, Persons
 
 def main(request):
     quests = quest.objects.all()
-    return render(request,'trak/main.html',{'quests':quests})
+    persona = Persons.objects.all()
+    return render(request,'trak/main.html',{'quests':quests},{'persona':persona})
     
 def deleters(request,id):
         Quest = quest.objects.get(id=id)
@@ -39,7 +40,3 @@ def edit(request, id):
 def getQ(request, pk):
      q = quest.objects.filter(id=pk).values()
      return JsonResponse({'q':list(q)})
-
-def persona(request):
-    persona = Persons.objects.all()
-    return render(request,'trak/main.html',{'persona':persona})
