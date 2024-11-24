@@ -9,8 +9,12 @@
       <div class="infotext">Награда: {{ quest.exp }} XP</div>
       <div class="infotext">
         <div id="infob">
-          <button class="infobtn">Выполнено</button>
-          <button class="infobtn">Удалить</button>
+          <a href="done/{{ quest.id }}"
+            ><button class="infobtn">Выполнено</button></a
+          >
+          <a href="deleters/{{ quest.id }}"
+            ><button class="infobtn">Удалить</button></a
+          >
           <button
             class="infobtn"
             type="button"

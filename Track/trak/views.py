@@ -13,6 +13,12 @@ def deleters(request,id):
         Quest.delete()
         return HttpResponseRedirect('/')
 
+def done(request,id):
+    dones = quest.objects.get(id=id)
+    dones.done = True
+    dones.save()
+    return HttpResponseRedirect('/')
+
 def Poster(request):
     if request.method == "POST":
         nameQu = request.POST.get('nameQu')
@@ -34,3 +40,6 @@ def edit(request, id):
 def getQ(request, pk):
      q = quest.objects.filter(id=pk).values()
      return JsonResponse({'q':list(q)})
+
+
+     
