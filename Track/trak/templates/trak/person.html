@@ -1,6 +1,10 @@
 <div id="per">
   {% for p in data.person %}
-  <div id="perpic">{{p.nameL}}<img class='card-img-top' src="{{p.image.url }}" alt=""></div>
-  <div>1</div>
+  {% for pe in data.expes %}
+  {% if pe.expe <= p.maxlvl and pe.expe >= p.minlvl %}
+    <div id="perpic">{{p.nameL}}<img class='card-img-top' src="{{p.image.url }}" alt=""></div>
+    <div>{{pe.expe}} / {{p.maxlvl}}</div>
+  {% endif %}
+  {% endfor %}
   {% endfor %}
 </div>
