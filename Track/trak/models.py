@@ -20,5 +20,13 @@ class Persons(models.Model):
     maxlvl = models.PositiveIntegerField()
     image = models.ImageField(upload_to='image')
 
+class Persona(models.Model):
+    name = models.TextField(max_length=20)
+    exp = models.PositiveIntegerField()
 
-    
+class Lvls(models.Model):
+    title = models.TextField()
+    minExp = models.PositiveIntegerField()
+    maxExp = models.PositiveIntegerField()
+    img = models.ImageField( upload_to=None, blank=True, null=True)
+   

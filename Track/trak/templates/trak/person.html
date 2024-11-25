@@ -1,6 +1,14 @@
 <div id="per">
-  {% for p in data.person %}
-  <div id="perpic">{{p.nameL}}</div>
-  <div id="">{{p.maxlvl}}</div>
+  {% for p in data.person %} 
+  {% for l in data.lvl %} 
+  {% if p.exp <= l.maxExp and p.exp >= l.minExp %}
+  <div>
+    <p>{{ l.title }}</p>
+  </div>
+
+  <div id="perpic"></div>
+  <div id=""></div>
+  {% endif %} 
+  {% endfor %} 
   {% endfor %}
 </div>

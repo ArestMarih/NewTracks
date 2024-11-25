@@ -2,12 +2,14 @@
 from django.shortcuts import render, HttpResponseRedirect, HttpResponse
 from django.forms.models import model_to_dict
 from django.http import JsonResponse
-from trak.models import quest, Persons
+from trak.models import Lvls, quest, Persona
 
 def main(request): # подгрузка всех данных на странцу 
     quests = quest.objects.all()
-    user = Persons.objects.all()
-    return render(request,'trak/main.html',{'data':{'quests':quests,'person':user}})
+    user = Persona.objects.all()
+    lvl = Lvls.objects.all()
+    print(user)
+    return render(request,'trak/main.html',{'data':{'quests':quests,'person':user,'lvl':lvl}})
     
 def deleters(request,id): # удаление квеста
         Quest = quest.objects.get(id=id)
