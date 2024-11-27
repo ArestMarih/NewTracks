@@ -5,3 +5,11 @@ class quest(models.Model):
     comments = models.TextField(null=True,blank=True)
     exp = models.PositiveIntegerField(default=0)
     done = models.BooleanField(default=False)
+
+class Person(models.Model):
+    exp = models.PositiveIntegerField()
+
+class Lvlvs(models.Model):
+    minExp = models.PositiveIntegerField()
+    maxExp = models.PositiveIntegerField()
+    title = models.CharField()

@@ -2,11 +2,11 @@ import json
 from django.shortcuts import render, HttpResponseRedirect, HttpResponse
 from django.forms.models import model_to_dict
 from django.http import JsonResponse
-from trak.models import quest
+from trak.models import Lvlvs, Person, quest
 
 def main(request):
     quests = quest.objects.all()
-    return render(request,'trak/main.html',{'quests':quests})
+    return render(request,'trak/main.html',{'data':{'quests':quests,'lvl':Lvlvs,'person':Person}})
     
 def deleters(request,id):
         Quest = quest.objects.get(id=id)
