@@ -41,3 +41,8 @@
 .infobtn{
     margin: 4px;
 }
+.card-img-top{
+    border-top-left-radius:
+    calc(.25rem - 1px);
+    border-top-right-radius:
+    calc(.25rem - 1px)}
