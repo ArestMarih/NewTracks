@@ -1,0 +1,13 @@
+
+{% for lvl in data.lvl %}
+{% for person in data.person %}
+
+
+<div id="per">
+   {% if lvl.maxExp <= peson.exp and lvl.minExp >= peson.exp %}
+   <div id="perpic">{{ lvl.title }}</div>
+   <progress  max="{{lvl.max}}" value="person.exp"></progress>
+   {% endif %}
+   
+ </div>
+ {% endfor %}{% endfor %}

@@ -26,6 +26,3 @@ class Persons(models.Model):
     maxlvl = models.PositiveIntegerField()
     image = models.ImageField(upload_to='image')
 
-
-
-    

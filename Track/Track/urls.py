@@ -10,6 +10,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', main, name='main'),
     path('deleters/<int:id>/', views.deleters),
+    path('done/<int:id>/', views.done),
     path('Poster/', views.Poster),
     path('done/<int:id>/', views.done),
     path('edit/<int:id>/',views.edit),

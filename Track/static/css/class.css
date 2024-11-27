@@ -4,29 +4,45 @@
 
 .form-container {
     max-width: 300px;
-    padding: 10px;
+    padding: 30px;
     background-color: white;
+    display: flex;
+    flex-direction: column;
+     width: 250px;
+     position: fixed;
+     left: 40%;
+     top: 150px;
+     border: 1px solid;
+     border-radius: 20px;
 }
 
 .form-popup {
     display: none;
-    position: absolute;
-    border: 3px solid #f1f1f1;
+    
 }
 .form-container .btn {
-    background-color: #4CAF50;
-    color: white;
+    /* background-color: #4CAF50; */
+    border: 3px solid #f1f1f1;
+    color: green;
     padding: 16px 20px;
     border: none;
     cursor: pointer;
     width: 100%;
-    margin-bottom:10px;
+    margin-top:10px;
     opacity: 0.8;
+    transition:0.5s;
   }
+.form-container .btn:hover{
+   background-color: #4CAF50;
+}
   
 .form-container .cancel {
-    background-color: red;
+   
+    color: red; 
   }
+.form-container .cancel:hover{
+   background-color: #FF3636;
+}
 
 .qus {
     color: aqua;
@@ -40,9 +56,12 @@
 }
 .infobtn{
     margin: 4px;
+    font-size: 20px;
+}
 }
 .card-img-top{
     border-top-left-radius:
     calc(.25rem - 1px);
     border-top-right-radius:
-    calc(.25rem - 1px)}
+    calc(.25rem - 1px)
+}

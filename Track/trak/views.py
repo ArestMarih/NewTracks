@@ -3,9 +3,9 @@ from django.shortcuts import render, HttpResponseRedirect, HttpResponse
 from django.forms.models import model_to_dict
 from django.http import JsonResponse
 from trak.models import quest, Persons, NowExp, Person
-
 def main(request): # подгрузка всех данных на странцу 
     quests = quest.objects.all()
+
     user = Persons.objects.all()
     expes = NowExp.objects.all()
     return render(request,'trak/main.html',{'data':{'quests':quests,'person':user,'expes':expes}})
@@ -15,7 +15,13 @@ def deleters(request,id): # удаление квеста
         Quest.delete()
         return HttpResponseRedirect('/')
 
-def Poster(request): # создание квеста
+def done(request,id):
+    dones = quest.objects.get(id=id)
+    dones.done = True
+    dones.save()
+    return HttpResponseRedirect('/')
+
+def Poster(request):
     if request.method == "POST":
         nameQu = request.POST.get('nameQu')
         comments = request.POST.get('comments')
