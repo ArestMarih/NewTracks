@@ -12,7 +12,7 @@ urlpatterns = [
     path('deleters/<int:id>/', views.deleters),
     path('done/<int:id>/', views.done),
     path('Poster/', views.Poster),
-    path('done/<int:id>/', views.done),
+    path('done/<int:id>/<int:exp>/', views.done),
     path('edit/<int:id>/',views.edit),
     path('getQ/<int:pk>/',views.getQ),
     path('test/', test)  

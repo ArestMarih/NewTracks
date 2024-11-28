@@ -15,12 +15,6 @@ def deleters(request,id): # удаление квеста
         Quest.delete()
         return HttpResponseRedirect('/')
 
-def done(request,id):
-    dones = quest.objects.get(id=id)
-    dones.done = True
-    dones.save()
-    return HttpResponseRedirect('/')
-
 def Poster(request):
     if request.method == "POST":
         nameQu = request.POST.get('nameQu')
@@ -29,10 +23,13 @@ def Poster(request):
         quest.objects.create(nameQu=nameQu, comments=comments, exp=exp)
     return HttpResponseRedirect('/')
  
-def done(request,id):  #отмета о выполнении 
+def done(request,id,exp):  #отмета о выполнении 
     dones = quest.objects.get(id=id)
     dones.done = True
     dones.save()
+    plas = NowExp.objects.get(id=1)
+    plas.expe = int(plas.expe) + int(exp)
+    plas.save()
     return HttpResponseRedirect('/')
      
 def edit(request, id):  # удаление квеста 
@@ -50,4 +47,5 @@ def getQ(request, pk): # получение определенной квест
 
 def test(request):
     expes = NowExp.objects.get(id=1)
-    return render(request, 'trak/test.html',{'expes':expes})
+    exp = expes.expe
+    return render(request, 'trak/test.html',{'expes':exp})
