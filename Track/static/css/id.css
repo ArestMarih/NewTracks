@@ -1,85 +1,94 @@
-#a{
-    display: flex;
-    justify-content: center;
-    text-align: center;
+#a {
+   display: flex;
+   justify-content: center;
+   text-align: center;
    position: absolute;
    left: 100px;
-   top:0;
+   top: 0;
 }
 
-#nav{
-    background-color: blueviolet;
-    width: 1000px;
-    font-size: 32px;
-    margin: 16px;
-    margin-bottom: 32px;
-    padding: 16px;
+#nav {
+   background-color: blueviolet;
+   width: 1000px;
+   font-size: 32px;
+   margin: 16px;
+   margin-bottom: 32px;
+   padding: 16px;
 }
 
-#inf{
-    background-color:gray;
-    font-size: 32px;
-    margin: 16px;
-    padding: 16px;
+#inf {
+   background-color: gray;
+   font-size: 32px;
+   margin: 16px;
+   padding: 16px;
 }
 
-#per{
-    background-color: brown;
-    margin: 16px;
-    margin-bottom: 32px;
+#per {
+   background-color: brown;
+   margin: 16px;
+   margin-bottom: 32px;
 }
 
-#vid{
-    background-color:cornflowerblue;
-    margin: 16px;
-    padding: 16px;
+#vid {
+   background-color: cornflowerblue;
+   margin: 16px;
+   padding: 16px;
 }
 
-#perpic{
-    width: 200px;
-    height: 200px;
-    padding: 16px;
+#perpic {
+   width: 200px;
+   height: 200px;
+   padding: 16px;
 }
 
-#perbar{
-    padding: 16px;
+#perbar {
+   padding: 16px;
 }
-#info{
-    display: flex;
-    justify-content: center;
-    margin-bottom: 10px;
 
-    
+#info {
+   display: flex;
+   justify-content: center;
+   margin-bottom: 10px;
 
-    
+
+
+
 }
-#inforb{
-    flex-direction: column;
+
+#inforb {
+   flex-direction: column;
 }
-#infomain{
+
+#infomain {}
+
+#infostate {
+   border: 2px solid black;
+   border-radius: 3px;
+   display: flex;
+   width: 750px;
+   justify-content: space-between;
 }
-#infostate{
-    border: 2px solid black;
-    border-radius: 3px;
-    display: flex;
-    width: 750px;
-    justify-content: space-between;
+
+#infob {
+   display: flex;
+   flex-wrap: nowrap;
 }
-#infob{
-    display: flex;
-    flex-wrap: nowrap;
-}
-#penis{
+
+#penis {
    display: none;
 }
-#id1{
-    display: none;
-    color: #4CAF50;
+
+#id1 {
+   display: block;
 }
-#id2{
-    display: none;
+
+#id2 {
+   display: none;
 }
+
 /* .allid{
     display: none;
 } */
-
+#list {
+   display: block;
+}

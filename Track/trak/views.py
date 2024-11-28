@@ -31,6 +31,16 @@ def done(request,id,exp):  #отмета о выполнении
     plas.expe = int(plas.expe) + int(exp)
     plas.save()
     return HttpResponseRedirect('/')
+
+def notDone(request,id,exp):
+    dones = quest.objects.get(id=id)
+    dones.done = False
+    dones.save()
+    plas = NowExp.objects.get(id=1)
+    plas.expe = int(plas.expe) - int(exp)
+    plas.save()
+    return HttpResponseRedirect('/')
+     
      
 def edit(request, id):  # удаление квеста 
      p = quest.objects.get(id=id)

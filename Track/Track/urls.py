@@ -13,6 +13,7 @@ urlpatterns = [
     path('done/<int:id>/', views.done),
     path('Poster/', views.Poster),
     path('done/<int:id>/<int:exp>/', views.done),
+    path("notdone/<int:id>/<int:exp>/", views.notDone),
     path('edit/<int:id>/',views.edit),
     path('getQ/<int:pk>/',views.getQ),
     path('test/', test)  
