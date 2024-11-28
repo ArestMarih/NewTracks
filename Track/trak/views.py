@@ -46,6 +46,5 @@ def getQ(request, pk): # получение определенной квест
      return JsonResponse({'q':list(q)})
 
 def test(request):
-    expes = NowExp.objects.get(id=1)
-    exp = expes.expe
+    # if request
     return render(request, 'trak/test.html',{'expes':exp})

@@ -11,8 +11,14 @@
   <body>
     <div id="a">
       <div class="b">
-        <div id="nav">NAVIGATION</div>
-        <div id="inf">{% include "./questCard.html" %}</div>
+      
+        <select name="items" id="nav" onchange="showBlock(this.value)">
+          <option value="1" selected="selected">Не выполненые задачи</option>
+          <option value="2">Выполненые задачи</option>
+          <option value="3">TaskTrue</option>
+          </select>
+          <div id="id2">{% include "./questCardFalse.html" %}</div>
+        <div id="id1">{% include "./questCard.html" %}</div>
       </div>
 
       <div class="b">
