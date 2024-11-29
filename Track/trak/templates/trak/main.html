@@ -12,15 +12,16 @@
     <div id="a">
       <div class="b">
       
-        <select name="items" id="nav" onchange="showBlock(this.value)">
-          <option value="1" selected="selected">Не выполненые задачи</option>
-          <option value="2">Выполненые задачи</option>
-          <option value="3">TaskTrue</option>
+        <select name="items" id="nav" autocomplete="off"  onchange="showBlock(this.value)">
+          <option value="1" selected="selected" >Не выполненые задачи</option>
+          <option value="2" >Выполненые задачи</option>
           </select>
-          <div id="id2">{% include "./questCardFalse.html" %}</div>
-        <div id="id1">{% include "./questCard.html" %}</div>
+          <div id='list'>
+            <div id="id2">{% include "./questCardTrue.html" %}</div>
+            <div id="id1">{% include "./questCardFalse.html" %}</div>
+          </div>
+          
       </div>
-
       <div class="b">
         {% include "./person.html" %} {% comment %}
         <div id="per">
