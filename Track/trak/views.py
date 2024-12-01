@@ -2,7 +2,7 @@
 from django.shortcuts import render, HttpResponseRedirect, HttpResponse
 from django.forms.models import model_to_dict
 from django.http import JsonResponse
-from trak.models import quest, Persons, NowExp, Person
+from trak.models import quest, Persons, NowExp
 def main(request): # подгрузка всех данных на странцу 
     quests = quest.objects.all()
 
