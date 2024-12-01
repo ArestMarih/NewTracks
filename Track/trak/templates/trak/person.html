@@ -2,8 +2,10 @@
   {% for p in data.person %}
   {% for pe in data.expes %}
   {% if pe.expe <= p.maxlvl and pe.expe >= p.minlvl %}
-    <div id="perpic">{{p.nameL}}<img class='card-img-top' src="{{p.image.url }}" alt=""></div>
-    <div>{{pe.expe}} / {{p.maxlvl}}</div>
+   <div class='person-card' id="perpic">{{p.nameL}}</div>
+   <div ><img class='card-img-top' src="{{p.image.url }}" alt="">
+   </div>
+    <div id='progress-bar'class='person-card'><progress  max='{{p.maxlvl}}' aria-label="Загрузка файла" value="{{pe.expe}}"></progress>{{pe.expe}} / {{p.maxlvl}}</div>
   {% endif %}
   {% endfor %}
   {% endfor %}

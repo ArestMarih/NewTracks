@@ -1,67 +1,96 @@
-.b{
-    flex-direction: column;
+.b {
+   flex-direction: column;
+}
+
+.c {
+   width: 300px;
 }
 
 .form-container {
-    max-width: 300px;
-    padding: 30px;
-    background-color: white;
-    display: flex;
-    flex-direction: column;
-     width: 250px;
-     position: fixed;
-     left: 40%;
-     top: 150px;
-     border: 1px solid;
-     border-radius: 20px;
+   max-width: 300px;
+   padding: 30px;
+   background-color: white;
+   display: flex;
+   flex-direction: column;
+   width: 250px;
+   position: fixed;
+   left: 40%;
+   top: 150px;
+   border: 1px solid;
+   border-radius: 20px;
 }
 
 .form-popup {
-    display: none;
-    
+   display: none;
+
 }
+
 .form-container .btn {
-    /* background-color: #4CAF50; */
-    border: 3px solid #f1f1f1;
-    color: green;
-    padding: 16px 20px;
-    border: none;
-    cursor: pointer;
-    width: 100%;
-    margin-top:10px;
-    opacity: 0.8;
-    transition:0.5s;
-  }
-.form-container .btn:hover{
+   /* background-color: #4CAF50; */
+   border: 3px solid #f1f1f1;
+   color: green;
+   padding: 16px 20px;
+   border: none;
+   cursor: pointer;
+   width: 100%;
+   margin-top: 10px;
+   opacity: 0.8;
+   transition: 0.5s;
+}
+
+.form-container .btn:hover {
    background-color: #4CAF50;
 }
-  
+
 .form-container .cancel {
-   
-    color: red; 
-  }
-.form-container .cancel:hover{
+
+   color: red;
+}
+
+.form-container .cancel:hover {
    background-color: #FF3636;
 }
 
 .qus {
-    color: aqua;
-}
-.infotext{
-    margin: 10px;
-    font-family: Trebuchet MS;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-}
-.infobtn{
-    margin: 4px;
-    font-size: 20px;
-}
-.card-img-top{
-    border-top-left-radius:
-    calc(.25rem - 1px);
-    border-top-right-radius:
-    calc(.25rem - 1px)
+   color: aqua;
 }
 
+.infotext {
+   margin: 10px;
+   font-family: Trebuchet MS;
+   display: flex;
+   flex-direction: column;
+   align-items: flex-start;
+   font-size: large;
+}
+
+.infobtn {
+   margin: 4px;
+   font-size: 20px;
+}
+
+
+
+.card-img-top {
+   border-top-left-radius:
+      calc(.25rem - 1px);
+   border-top-right-radius:
+      calc(.25rem - 1px);
+   width: 200px;
+   height: 150px;
+}
+
+.person-card {
+   font-size: large;
+}
+
+.btn-v {
+   margin-bottom: 10px;
+   padding: 5px;
+   font-size: large;
+   cursor: pointer;
+}
+
+.btn-v:hover {
+   box-shadow: 5px 5px 20px green;
+}

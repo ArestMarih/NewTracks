@@ -14,6 +14,7 @@
    margin: 16px;
    margin-bottom: 32px;
    padding: 16px;
+   border-radius: 15px;
 }
 
 #inf {
@@ -27,6 +28,18 @@
    background-color: brown;
    margin: 16px;
    margin-bottom: 32px;
+   display: flex;
+   flex-direction: column;
+   /* justify-items: center; */
+   justify-content: center;
+   align-content: center;
+   height: 200px;
+   padding: 16px;
+   grid-gap: 5px;
+
+
+
+
 }
 
 #vid {
@@ -36,9 +49,10 @@
 }
 
 #perpic {
-   width: 200px;
+   /* width: 200px;
    height: 200px;
-   padding: 16px;
+   padding: 16px; */
+
 }
 
 #perbar {
@@ -63,7 +77,7 @@
 
 #infostate {
    border: 2px solid black;
-   border-radius: 3px;
+   border-radius: 10px;
    display: flex;
    width: 750px;
    justify-content: space-between;
@@ -91,4 +105,28 @@
 } */
 #list {
    display: block;
+}
+
+#progress-bar {
+   display: flex;
+   flex-direction: column;
+}
+
+progress::-moz-progress-bar {
+   border: none;
+   background-color: #FF8630;
+}
+
+progress::-webkit-progress-bar {
+   border: none;
+   background-color: #FF8630;
+}
+
+progress::-webkit-progress-value {
+   background-color: #FF8630;
+}
+
+#buttons {
+   display: flex;
+   flex-direction: column;
 }
