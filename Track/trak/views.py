@@ -2,13 +2,13 @@
 from django.shortcuts import render, HttpResponseRedirect, HttpResponse
 from django.forms.models import model_to_dict
 from django.http import JsonResponse
-from trak.models import quest, Persons, NowExp
+from trak.models import quest, Persons, NowExp, Finance, CatFin
 def main(request): # подгрузка всех данных на странцу 
     quests = quest.objects.all()
-
     user = Persons.objects.all()
     expes = NowExp.objects.all()
-    return render(request,'trak/main.html',{'data':{'quests':quests,'person':user,'expes':expes}})
+    finc = CatFin.objects.all()
+    return render(request,'trak/main.html',{'data':{'quests':quests,'person':user,'expes':expes,'finc':finc}})
     
 def deleters(request,id): # удаление квеста
         Quest = quest.objects.get(id=id)
@@ -55,6 +55,26 @@ def getQ(request, pk): # получение определенной квест
      q = quest.objects.filter(id=pk).values()
      return JsonResponse({'q':list(q)})
 
+def AddFinance(request):   
+    if request.method == "POST":
+        namef = request.POST.get('nameF')
+        desc = request.POST.get('desc')
+        pk = request.POST.get('category')
+        Income = request.POST.get('Income')
+        count = request.POST.get('count')
+        categor = CatFin.objects.get(Cat=pk)
+        category = categor.Cat
+        Finance.objects.create(namef=namef,desc=desc,Income=Income,count=count,category=category)
+    return HttpResponseRedirect('/')
+
+
+def AddCat(request):
+    if request.method == "POST":
+        Cat = request.POST.get('Cat')      
+        CatFin.objects.create(Cat=Cat)
+    return HttpResponseRedirect('/')
+
 def test(request):
-    # if request
-    return render(request, 'trak/test.html',{'expes':exp})
+    pk = "Жопа"
+    cat = CatFin.objects.filter(Cat=pk)
+    return render(request, 'trak/test.html', {"category":cat})

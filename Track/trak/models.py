@@ -8,6 +8,7 @@ class quest(models.Model):
 
 class NowExp(models.Model):
     expe = models.PositiveIntegerField(default=0)
+    Total_money = models.BigIntegerField(default=0)
 
 def __str__(self):
     return self.nameL
@@ -22,7 +23,7 @@ class CatFin(models.Model):
     Cat = models.TextField()
 
 class Finance(models.Model):
-    Name_F = models.TextField()
+    name_f = models.TextField()
     desc = models.TextField()
     Income = models.BooleanField(default=None)
     count = models.BigIntegerField(default=0)
