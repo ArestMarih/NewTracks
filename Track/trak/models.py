@@ -23,7 +23,7 @@ class CatFin(models.Model):
     Cat = models.TextField()
 
 class Finance(models.Model):
-    name_f = models.TextField()
+    nameff = models.TextField()
     desc = models.TextField()
     Income = models.BooleanField(default=None)
     count = models.BigIntegerField(default=0)
