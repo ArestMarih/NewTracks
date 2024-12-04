@@ -28,4 +28,5 @@ class Finance(models.Model):
     Income = models.BooleanField(default=None)
     count = models.BigIntegerField(default=0)
     category = models.ForeignKey(CatFin, on_delete=models.PROTECT)
+    data = models.DateTimeField(auto_now_add=True)
 
