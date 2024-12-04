@@ -1,9 +1,34 @@
 <div>
-    <div>Total money</div>
+    {% for expe in data.expes %}
+    <div>Total money; {{expe.Total_money}}</div>
+    {% endfor %}
     <div>invest</div>
     <div>debt</div>
     <div>+money</div>
-    <div>-money</div>
+{% for fin in data.fin %}
+    
+    {% if fin.Income %}
+    {{fin.nameF}}
+    {{fin.desc}}
+    {{fin.count}}
+    {{fin.category.Cat}}
+    {{fin.data}}
+    {% endif %}
+
+{% endfor %}
+<div>-money</div>
+{% for fin in data.fin %}
+    
+    {% if not fin.Income %}
+    {{fin.nameF}}
+    {{fin.desc}}
+    {{fin.count}}
+    {{fin.category.Cat}}
+    {{fin.data}}
+    {% endif %}
+
+{% endfor %}
     <button type="button">look more</button>
     <button type="button">look more</button>
+    
 </div>
