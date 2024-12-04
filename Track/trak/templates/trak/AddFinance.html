@@ -1,0 +1,42 @@
+<div class="form-popup" id="AddFinance">
+  {% for cat in data.finc %}
+    <div id="v">
+      <form method="POST" class="form-container" action="AddFinance/{{cat.id}}/">
+        <label for="nameff"><b>Название операции</b></label>
+        <input type="text" placeholder="Название" name="nameff" />
+  
+        <label for="desc"><b>Коментарий</b></label>
+        <input type="text" placeholder="Коментарий" name="desc" />
+  
+        <label for="Income"><b>Тип операции</b></label>
+        <!-- <input type="text" placeholder="Доход/Расход" name="Income" /> -->
+        <ul>
+            <li>
+                <input type="radio" name="Income" value="True">
+                <label >Доход</label>
+            </li>
+            <li>
+                <input type="radio" name="Income" value="False">
+                <label >Расход</label>
+            </li>
+        </ul>
+
+        <label for="count"><b>Сумма денег</b></label>
+        <input type="text" placeholder="Получено/Потрачено" name="count" />
+
+        <label for="category"><b>Категория</b></label>
+        <button type="button" onclick="openAddCat()">+</button>
+            <select name="category">
+                <option>{{ cat.Cat}}</option>
+            </select>
+  {% endfor %}
+        <!-- <input type="text" placeholder="Категория" name="category" /> -->
+  
+        <button type="submit" class="btn" value="POST">Отправка формы</button>
+        <button type="button" class="btn cancel" onclick="closeAddF()">
+          Закрыть
+        </button>
+      </form>
+    </div>
+  </div>
+  

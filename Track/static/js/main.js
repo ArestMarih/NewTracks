@@ -7,6 +7,24 @@ function openForm() {
   document.getElementById("a").style.filter = "blur(10px)";
 }
 
+function closeAddF() {
+  document.getElementById("AddFinance").style.display = "none";
+  document.getElementById("a").style.filter = "blur(0)";
+}
+function openAddF() {
+  document.getElementById("AddFinance").style.display = "flex";
+  document.getElementById("a").style.filter = "blur(10px)";
+}
+
+function closeAddCat() {
+  document.getElementById("AddCat").style.display = "none";
+  document.getElementById("a").style.filter = "blur(0)";
+}
+function openAddCat() {
+  document.getElementById("AddCat").style.display = "flex";
+  document.getElementById("a").style.filter = "blur(10px)";
+}
+
 async function openEdit(id) {
   const r = await fetch(`http://127.0.0.1:8000/getQ/${id}/`);
   const json = await r.json();
