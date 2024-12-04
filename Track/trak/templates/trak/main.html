@@ -23,14 +23,10 @@
           
       </div>
       <div class="b">
-        {% include "./person.html" %} {% comment %}
-        <div id="per">
-          <div id="perpic">PERSON</div>
-          <div id="perbar">XP bar</div>
-        </div>
-        {% endcomment %}
+        {% include "./person.html" %} 
         <div id="vid">
           <button type="button" onclick="openForm()">Добавить задачу</button>
+          <button type="button" onclick="openAddF()">Добавить операцию</button>
           <p>button</p>
           <p>button</p>
           <p>button</p>
@@ -40,6 +36,9 @@
         </div>
       </div>
     </div>
-    {% include "./formAddQuest.html" %} {% include "./formEdit.html" %}
+    {% include "./formAddQuest.html" %}
+    {% include "./formEdit.html" %} 
+    {% include "./AddFinance.html" %}
+    {% include "./AddCat.html" %}
   </body>
 </html>

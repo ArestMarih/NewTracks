@@ -3,7 +3,7 @@ from django.contrib import admin
 from django.urls import path
 from django.conf.urls.static import static
 from django.conf import settings
-from trak.views import main, deleters, Poster, done, edit, getQ, test
+from trak.views import main, deleters, Poster, done, edit, getQ, test, AddFinance, AddCat
 from trak import views
 
 urlpatterns = [
@@ -16,7 +16,9 @@ urlpatterns = [
     path("notdone/<int:id>/<int:exp>/", views.notDone),
     path('edit/<int:id>/',views.edit),
     path('getQ/<int:pk>/',views.getQ),
-    path('test/', test)  
+    path("AddFinance/<int:id>/", views.AddFinance),
+    path('AddCat/', views.AddCat),
+    path('test/', test) 
 ]
 
 if settings.DEBUG:
