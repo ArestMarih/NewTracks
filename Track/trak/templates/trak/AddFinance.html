@@ -1,8 +1,9 @@
 <div class="form-popup" id="AddFinance">
     <div id="v">
-      <form method="POST" class="form-container" action="AddFinance/">
-        <label for="namef"><b>Название операции</b></label>
-        <input type="text" placeholder="Название" name="namef" />
+      {% for cat in data.finc %}
+      <form method="POST" class="form-container" action="AddFinance/{{cat.id}}/">
+        <label for="nameF"><b>Название операции</b></label>
+        <input type="text" placeholder="Название" name="nameF" />
   
         <label for="desc"><b>Коментарий</b></label>
         <input type="text" placeholder="Коментарий" name="desc" />
@@ -25,7 +26,6 @@
 
         <label for="category"><b>Категория</b></label>
         <button type="button" onclick="openAddCat()">+</button>
-        {% for cat in data.finc %}
             <select name="category">
                 <option>{{ cat.Cat}}</option>
             </select>

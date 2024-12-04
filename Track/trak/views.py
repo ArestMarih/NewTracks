@@ -55,16 +55,13 @@ def getQ(request, pk): # получение определенной квест
      q = quest.objects.filter(id=pk).values()
      return JsonResponse({'q':list(q)})
 
-def AddFinance(request):   
+def AddFinance(request,id):   
     if request.method == "POST":
         namef = request.POST.get('nameF')
         desc = request.POST.get('desc')
-        pk = request.POST.get('category')
         Income = request.POST.get('Income')
         count = request.POST.get('count')
-        categor = CatFin.objects.get(Cat=pk)
-        category = categor.Cat
-        Finance.objects.create(namef=namef,desc=desc,Income=Income,count=count,category=category)
+        Finance.objects.create(nameF=namef,desc=desc,Income=Income,count=count,category_id=id)
     return HttpResponseRedirect('/')
 
 

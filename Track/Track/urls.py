@@ -16,7 +16,7 @@ urlpatterns = [
     path("notdone/<int:id>/<int:exp>/", views.notDone),
     path('edit/<int:id>/',views.edit),
     path('getQ/<int:pk>/',views.getQ),
-    path("AddFinance/", views.AddFinance),
+    path("AddFinance/<int:id>/", views.AddFinance),
     path('AddCat/', views.AddCat),
     path('test/', test) 
 ]
