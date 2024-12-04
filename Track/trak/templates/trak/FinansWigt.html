@@ -1,9 +1,43 @@
 <div>
-    <div>Total money</div>
-    <div>invest</div>
-    <div>debt</div>
-    <div>+money</div>
-    <div>-money</div>
-    <button type="button">look more</button>
-    <button type="button">look more</button>
+    {% for expe in data.expes %}
+    <div style="display: flex; font-size: 24px; font-weight: bold; justify-content: center;"><!--основные параметры - всего, расход, доход-->
+        <div style="margin: 10px 50px; border: 1px black solid; border-radius: 10px; padding: 20px 30px;">Всего средств: {{expe.Total_money}}</div>
+        {% endfor %}
+        <div style="margin: 10px 50px; border: 1px black solid; border-radius: 10px; padding: 20px 30px;">Доходы</div>
+        <div style="margin: 10px 50px; border: 1px black solid; border-radius: 10px; padding: 20px 30px;">Расходы</div>
+    </div>
+    <div style="display: flex; margin: 10px;justify-content: space-around;"><!--таблица событий-->
+        <div style="flex-direction: column;"><!--колонка с доходами-->
+            <div style="font-size: 20px; font-weight: bold; margin: 10px;">Доход</div><!--заголовок-->
+                {% for fin in data.fin %}
+                    {% if fin.Income %}
+                    <div style="display: flex; margin: 20px; border: 1px black solid; border-radius: 10px; padding: 10px;">
+                        <div style="text-align: start;">
+                            <p style="margin: 0px">{{fin.nameF}}, {{fin.desc}}</p>Б<!--имя, описание-->
+                            <p style="margin: 0px">{{fin.category.Cat}}</p><!--категория-->
+                            <p style="margin: 0px">{{fin.data}}</p><!--дата-->
+                        </div>
+                        <p style="margin: 0px; margin-left:50px; font-weight: bold; align-content: center;">+ {{fin.count}} руб.</p><!--сумма-->
+                    </div>
+                    {% endif %}
+                {% endfor %}
+            <button type="button" style="font-size: 16px; font-family: 'Trebuchet MS'; font-weight: bold; padding: 3px 20px; background-color: white; border: 1px black solid; border-radius: 15px;">Посмотреть все</button><!--кнопка "больше"-->
+        </div>
+        <div style="flex-direction: column;"><!--колонка с расходами-->
+            <div style="font-size: 16px; font-weight: bold; margin: 10px;">Расход</div><!--заголовок-->
+                {% for fin in data.fin %}
+                    {% if not fin.Income %}
+                    <div style="display: flex; margin: 20px; border: 1px black solid; border-radius: 10px; padding: 10px;">
+                        <p style="margin: 0px; margin-right:50px; font-weight: bold; align-content: center;">- {{fin.count}} руб.</p>
+                        <div style="text-align: end;">
+                            <p style="margin: 0px">{{fin.nameF}}, {{fin.desc}}</p><!--имя, описание-->
+                            <p style="margin: 0px">{{fin.category.Cat}}</p><!--категория-->
+                            <p style="margin: 0px">{{fin.data}}</p><!--дата-->
+                        </div>
+                    </div>
+                    {% endif %}
+                {% endfor %}
+            <button type="button" style="font-size: 16px; font-family: 'Trebuchet MS'; font-weight: bold; padding: 3px 20px; background-color: white; border: 1px black solid; border-radius: 15px;">Посмотреть все</button><!--кнопка "больше"-->
+        </div>
+    </div>
 </div>

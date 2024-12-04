@@ -8,7 +8,8 @@ def main(request): # подгрузка всех данных на странц�
     user = Persons.objects.all()
     expes = NowExp.objects.all()
     finc = CatFin.objects.all()
-    return render(request,'trak/main.html',{'data':{'quests':quests,'person':user,'expes':expes,'finc':finc}})
+    fin = Finance.objects.all()
+    return render(request,'trak/main.html',{'data':{'quests':quests,'person':user,'expes':expes,'finc':finc,'fin':fin}})
     
 def deleters(request,id): # удаление квеста
         Quest = quest.objects.get(id=id)
@@ -59,10 +60,19 @@ def AddFinance(request,id):
     if request.method == "POST":
         namef = request.POST.get('nameF')
         desc = request.POST.get('desc')
+        global Income
         Income = request.POST.get('Income')
         count = request.POST.get('count')
         Finance.objects.create(nameF=namef,desc=desc,Income=Income,count=count,category_id=id)
-    return HttpResponseRedirect('/')
+        if Income == "True":
+            plas = NowExp.objects.get(id=1)
+            plas.Total_money = int(plas.Total_money) + int(count)
+            plas.save()
+        else:
+            plas = NowExp.objects.get(id=1)
+            plas.Total_money = int(plas.Total_money) - int(count)
+            plas.save()
+        return HttpResponseRedirect('/')
 
 
 def AddCat(request):
