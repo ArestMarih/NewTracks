@@ -3,6 +3,8 @@ from django.shortcuts import render, HttpResponseRedirect, HttpResponse
 from django.forms.models import model_to_dict
 from django.http import JsonResponse
 from trak.models import quest, Persons, NowExp, Finance, CatFin
+from bs4 import BeautifulSoup
+import requests
 def main(request): # подгрузка всех данных на странцу 
     quests = quest.objects.all()
     user = Persons.objects.all()
@@ -82,6 +84,15 @@ def AddCat(request):
     return HttpResponseRedirect('/')
 
 def test(request):
-    pk = "Жопа"
-    cat = CatFin.objects.filter(Cat=pk)
-    return render(request, 'trak/test.html', {"category":cat})
+    url = "https://yandex.ru/finance/currencies/EUR_RUB"
+    res = requests.get(url)
+    bs = BeautifulSoup(res.text,'lxml')
+    list_val = []
+    list_val1 = []
+    for i in bs.find_all('button','Button2 Button2_width_max Button2_size_m Button2_view_default Select2-Button'):
+        list_val.append(i.get("aria-label"))
+
+    for i in bs.find_all('input','Textinput-Control'):
+        list_val1.append(i.get("value"))
+    resut = dict(zip(list_val, list_val1))
+    return render(request, 'trak/test.html', {"res":resut})
