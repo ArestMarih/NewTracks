@@ -5,6 +5,7 @@ from django.http import JsonResponse
 from trak.models import quest, Persons, NowExp, Finance, CatFin
 from bs4 import BeautifulSoup
 import requests
+import json
 def main(request): # подгрузка всех данных на странцу 
     quests = quest.objects.all()
     user = Persons.objects.all()
@@ -83,16 +84,32 @@ def AddCat(request):
         CatFin.objects.create(Cat=Cat)
     return HttpResponseRedirect('/')
 
-def test(request):
-    url = "https://yandex.ru/finance/currencies/EUR_RUB"
-    res = requests.get(url)
-    bs = BeautifulSoup(res.text,'lxml')
-    list_val = []
-    list_val1 = []
-    for i in bs.find_all('button','Button2 Button2_width_max Button2_size_m Button2_view_default Select2-Button'):
-        list_val.append(i.get("aria-label"))
+def coinC(request):
+    if request.method == "POST":
+        global coin, wallet
+        coin = request.POST.get('coin')
+        wallet = request.POST.get('wallet')
 
-    for i in bs.find_all('input','Textinput-Control'):
-        list_val1.append(i.get("value"))
-    resut = dict(zip(list_val, list_val1))
+    url = "https://api.coingecko.com/api/v3/coins/markets?x_cg_demo_api_key=CG-r1umQzviBjg5aMeDfVcjvbjr"
+    params={f'ids': '{coin}',
+            'vs_currency': '{wallet}'}
+    res = requests.get(url, params=params)
+    resu = res.json()
+    for data in resu:
+        resut = [{
+        "name": data["id"],
+        "price": data["current_price"]
+    }]
+
+def test(request):
+    url = "https://api.coingecko.com/api/v3/coins/markets?x_cg_demo_api_key=CG-r1umQzviBjg5aMeDfVcjvbjr"
+    params={'ids': 'bitcoin',
+            'vs_currency': 'usd'}
+    res = requests.get(url, params=params)
+    resu = res.json()
+    for data in resu:
+        resut = [{
+        "name": data["id"],
+        "price": data["current_price"]
+    }]
     return render(request, 'trak/test.html', {"res":resut})
